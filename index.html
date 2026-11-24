@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TouchMem: Improving Embodied Coding Agents with Tactile Memory</title>
+  <meta name="description" content="TouchMem enables VLM-based coding agents to acquire, remember, and reuse tactile manipulation skills. Read the paper and watch the project video.">
+  <link rel="alternate" type="application/pdf" href="assets/touchmem-paper.pdf" title="TouchMem paper">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #fafaf7;
+      --ink: #152d29;
+      --text: #334b45;
+      --accent: #006d5a;
+      --rule: #d9e0da;
+      font-family: "Inter", "Source Sans 3", Arial, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); }
+    main { width: min(960px, calc(100% - 48px)); margin: 0 auto; padding: clamp(32px, 4vw, 56px) 0 60px; }
+    header { margin: 0 auto clamp(23px, 3vw, 36px); text-align: center; }
+    h1, h2, p { margin: 0; }
+    .name { display: block; font-size: clamp(2.65rem, 5.9vw, 4.85rem); font-weight: 750; line-height: 1; letter-spacing: -.065em; }
+    .name span { color: var(--accent); }
+    .title { display: block; max-width: 37ch; margin: 11px auto 0; font-size: clamp(1.25rem, 2.15vw, 1.9rem); font-weight: 600; line-height: 1.18; letter-spacing: -.028em; text-wrap: balance; }
+    .authors, .affiliations { padding: 0; list-style: none; text-wrap: balance; }
+    .authors { margin: 20px auto 0; font-size: clamp(1rem, 1.4vw, 1.13rem); font-weight: 600; line-height: 1.8; }
+    .authors li { display: inline-block; margin: 0 .32em; white-space: nowrap; }
+    sup { color: var(--accent); font-size: .65em; line-height: 0; }
+    .authors sup { margin-left: .12em; }
+    .affiliations { display: flex; flex-wrap: wrap; justify-content: center; gap: 3px 20px; margin: 5px auto 0; color: var(--text); font-size: .95rem; line-height: 1.5; }
+    .affiliations sup { margin-right: .25em; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; margin-top: 19px; }
+    nav a { display: inline-flex; min-height: 40px; align-items: center; padding: 0 16px; border: 1px solid var(--rule); border-radius: 999px; background: white; color: var(--text); text-decoration: none; font-size: .94rem; font-weight: 600; }
+    nav a:hover { border-color: var(--accent); color: var(--accent); }
+    nav .paper-link { background: var(--accent); color: white; border-color: var(--accent); }
+    nav .paper-link:hover { background: #005244; color: white; }
+    [id] { scroll-margin-top: 20px; }
+    video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #101a1b; border-radius: 10px; }
+    a { color: var(--accent); }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+    .paper-text { max-width: 760px; margin: clamp(28px, 4vw, 48px) auto 0; padding-top: 21px; border-top: 1px solid var(--rule); }
+    .paper-text h2 { margin-bottom: 12px; font-size: clamp(1.35rem, 2vw, 1.7rem); line-height: 1.2; letter-spacing: -.03em; }
+    .paper-text p { color: var(--text); font-size: clamp(1rem, 1.25vw, 1.075rem); line-height: 1.7; }
+    @media (max-width: 560px) {
+      main { width: calc(100% - 32px); padding-bottom: 36px; }
+      video { border-radius: 6px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1><span class="name">Touch<span>Mem</span></span> <span class="title">Improving Embodied Coding Agents with Tactile Memory</span></h1>
+      <ul class="authors" aria-label="Authors">
+        <li>Jizhong Li<sup>1</sup></li>
+        <li>Mufan Shi<sup>1</sup></li>
+        <li>Nan Min<sup>1</sup></li>
+        <li>DaLi Zhou<sup>1</sup></li>
+        <li>Shunlin Lu<sup>2</sup></li>
+        <li>Ziyi Ye<sup>1</sup></li>
+        <li>Zuxuan Wu<sup>1,2</sup></li>
+        <li>Yu-Gang Jiang<sup>1</sup></li>
+      </ul>
+      <ul class="affiliations" aria-label="Affiliations">
+        <li><sup>1</sup>Institute of Trustworthy Embodied AI, Fudan University</li>
+        <li><sup>2</sup>NeoteAI</li>
+      </ul>
+      <nav aria-label="Project resources">
+        <a class="paper-link" href="assets/touchmem-paper.pdf">Paper (PDF)</a>
+        <a href="#video">Video</a>
+        <a href="#abstract">Abstract</a>
+      </nav>
+    </header>
+    <video id="video" controls playsinline preload="metadata" width="1920" height="1080" poster="assets/poster.jpg" aria-label="TouchMem project video">
+      <source src="assets/touchmem-demo.mp4" type="video/mp4">
+      <a href="assets/touchmem-demo.mp4">Download the TouchMem video</a>
+    </video>
+    <section id="abstract" class="paper-text" aria-labelledby="abstract-title">
+      <h2 id="abstract-title">Abstract</h2>
+      <p>Code-as-Policies enables vision-language models (VLMs) to perform robotic manipulation by generating code that coordinates perception and control. However, existing coding agents typically rely on visual and proprioceptive signals, while lacking mechanisms to manage and reuse tactile information for contact-rich manipulation.
+      We introduce TouchMem, a robotic manipulation framework built on CaP-X that enables VLM-based coding agents to acquire, remember, and reuse tactile manipulation skills.
+      Corresponding to these three operations, TouchMem integrates three components: tactile representation, memory compression, and memory retrieval.
+      Specifically, the representation module acquires contact information by encoding raw sensor readings into compact physical features for code generation.
+      Memory compression remembers interaction histories under a limited context budget as concise contact records and reusable skills, while memory retrieval reuses relevant records and skills verified against online sensor feedback for closed-loop control.
+      To validate TouchMem, we build TouchMem-Bench, an eight-task simulation benchmark, and compare different representations and memory mechanisms across this benchmark and two real-world robot tasks.
+      Experiments show that TouchMem reaches 86.3% and 77.5% average success in representation and memory evaluations on TouchMem-Bench, while also outperforming baselines on real-world tasks.</p>
+    </section>
+  </main>
+</body>
+</html>
